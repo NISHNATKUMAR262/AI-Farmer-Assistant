@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register | AI Farmer Assistant</title>
+
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Google Font -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+min-height:100vh;
+
+background:linear-gradient(-45deg,#00b09b,#96c93d,#43cea2,#185a9d);
+
+background-size:400% 400%;
+
+animation:bgAnimation 15s ease infinite;
+
+overflow-x:hidden;
+
+}
+
+@keyframes bgAnimation{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+/* Floating Circles */
+
+.circle{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+animation:float 8s infinite ease-in-out;
+
+}
+
+.c1{
+
+width:180px;
+height:180px;
+
+top:50px;
+left:-60px;
+
+}
+
+.c2{
+
+width:250px;
+height:250px;
+
+right:-70px;
+bottom:80px;
+
+}
+
+.c3{
+
+width:120px;
+height:120px;
+
+top:70%;
+left:45%;
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-30px);
+
+}
+
+}
+
+/* Navbar */
+
+.navbar{
+
+background:rgba(255,255,255,.10);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid rgba(255,255,255,.20);
+
+}
+
+.navbar-brand{
+
+font-size:30px;
+
+font-weight:700;
+
+color:white!important;
+
+}
+
+.nav-link{
+
+color:white!important;
+
+margin-left:20px;
+
+font-weight:500;
+
+transition:.3s;
+
+}
+
+.nav-link:hover{
+
+color:#ffe600!important;
+
+}
+
+/* Register Card */
+
+.register-card{
+
+margin-top:60px;
+
+margin-bottom:60px;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(25px);
+
+border-radius:30px;
+
+padding:45px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+color:white;
+
+}
+
+/* Logo */
+
+.logo{
+
+font-size:70px;
+
+text-align:center;
+
+margin-bottom:15px;
+
+}
+
+/* Title */
+
+.title{
+
+font-size:38px;
+
+font-weight:700;
+
+text-align:center;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+opacity:.9;
+
+margin-bottom:35px;
+
+}
+
+/* Progress */
+
+.progress{
+
+height:10px;
+
+border-radius:30px;
+
+margin-bottom:15px;
+
+}
+
+.progress-bar{
+
+background:#00ff95;
+
+}
+
+.step{
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:14px;
+
+font-weight:600;
+
+margin-bottom:35px;
+
+}
+
+/* Buttons */
+
+.btn-next{
+
+padding:14px;
+
+border-radius:40px;
+
+font-size:18px;
+
+font-weight:600;
+
+}
+
+/* Footer */
+
+.footer{
+
+text-align:center;
+
+margin-top:25px;
+
+}
+
+.footer a{
+
+color:#ffe600;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+.footer a:hover{
+
+text-decoration:underline;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.register-card{
+
+padding:25px;
+
+}
+
+.title{
+
+font-size:28px;
+
+}
+
+.navbar-brand{
+
+font-size:22px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Floating Shapes -->
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container">
+
+<a class="navbar-brand" href="/">
+
+🌾 AI Farmer
+
+</a>
+
+<button class="navbar-toggler bg-light"
+
+data-bs-toggle="collapse"
+
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+
+<a class="nav-link" href="/">Home</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link" href="/login">Login</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link" href="/weather">Weather</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link" href="/market">Market</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link" href="/contact">Contact</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="register-card">
+
+<div class="logo">
+
+🌾
+
+</div>
+
+<h1 class="title">
+
+Create Farmer Account
+
+</h1>
+
+<p class="subtitle">
+
+Join India's Smart AI Farming Platform
+
+</p>
+
+<!-- Progress -->
+
+<div class="progress">
+
+<div class="progress-bar"
+
+style="width:16%">
+
+</div>
+
+</div>
+
+<div class="step">
+
+<span>👤 Personal</span>
+
+<span>🌾 Farm</span>
+
+<span>🔒 Security</span>
+
+<span>📧 Verification</span>
+
+<span>✅ Finish</span>
+
+</div>
+
+<!-- ====================== -->
+
+<!-- Part-2 Starts Here -->
+
+<!-- Personal Information -->
+
+<!-- ====================== -->
+ <!-- ================= PERSONAL INFORMATION ================= -->
+
+<form action="/register" method="POST" enctype="multipart/form-data">
+
+<h3 class="mb-4 text-warning">
+
+<i class="fa-solid fa-user"></i>
+
+Personal Information
+
+</h3>
+
+<div class="row">
+
+<!-- Profile Photo -->
+
+<div class="col-12 text-center mb-4">
+
+<div class="position-relative d-inline-block">
+
+<img src="https://via.placeholder.com/150"
+
+id="preview"
+
+class="rounded-circle border border-4 border-light shadow"
+
+width="150"
+
+height="150">
+
+<label for="photo"
+
+class="btn btn-success rounded-circle"
+
+style="position:absolute;bottom:5px;right:5px;">
+
+<i class="fa-solid fa-camera"></i>
+
+</label>
+
+<input
+
+type="file"
+
+id="photo"
+
+name="photo"
+
+accept="image/*"
+
+hidden>
+
+</div>
+
+<p class="mt-3">
+
+Upload Profile Photo
+
+</p>
+
+</div>
+
+<!-- Full Name -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Full Name
+
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+
+<i class="fa-solid fa-user"></i>
+
+</span>
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="fullname"
+
+placeholder="Enter Full Name"
+
+required>
+
+</div>
+
+</div>
+
+<!-- Username -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Username
+
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+
+@
+
+</span>
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="username"
+
+placeholder="Choose Username"
+
+required>
+
+</div>
+
+</div>
+
+<!-- Email -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Email Address
+
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+
+<i class="fa-solid fa-envelope"></i>
+
+</span>
+
+<input
+
+type="email"
+
+class="form-control"
+
+name="email"
+
+placeholder="example@gmail.com"
+
+required>
+
+</div>
+
+</div>
+
+<!-- Mobile -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Mobile Number
+
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+
++91
+
+</span>
+
+<input
+
+type="tel"
+
+class="form-control"
+
+name="mobile"
+
+maxlength="10"
+
+placeholder="9876543210"
+
+required>
+
+</div>
+
+</div>
+
+<!-- Gender -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Gender
+
+</label>
+
+<select
+
+class="form-select"
+
+name="gender"
+
+required>
+
+<option value="">Choose Gender</option>
+
+<option>Male</option>
+
+<option>Female</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+<!-- DOB -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Date of Birth
+
+</label>
+
+<input
+
+type="date"
+
+class="form-control"
+
+name="dob"
+
+required>
+
+</div>
+
+<!-- Aadhaar -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Aadhaar Number
+
+</label>
+
+<input
+
+type="text"
+
+class="form-control"
+
+maxlength="12"
+
+name="aadhaar"
+
+placeholder="123456789012">
+
+</div>
+
+<!-- PAN -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+PAN Number
+
+</label>
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="pan"
+
+placeholder="ABCDE1234F">
+
+</div>
+
+<!-- Language -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Preferred Language
+
+</label>
+
+<select
+
+class="form-select"
+
+name="language">
+
+<option>English</option>
+
+<option>Hindi</option>
+
+<option>Punjabi</option>
+
+<option>Marathi</option>
+
+<option>Tamil</option>
+
+<option>Telugu</option>
+
+<option>Bengali</option>
+
+</select>
+
+</div>
+
+<!-- Occupation -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Occupation
+
+</label>
+
+<select
+
+class="form-select"
+
+name="occupation">
+
+<option>Farmer</option>
+
+<option>Student</option>
+
+<option>Researcher</option>
+
+<option>Agriculture Officer</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- ================= Part-3 Starts Here ================= -->
+ <!-- ================= FARM INFORMATION ================= -->
+
+<h3 class="mb-4 text-success">
+
+<i class="fa-solid fa-seedling"></i>
+
+Farmer Information
+
+</h3>
+
+<div class="row">
+
+<!-- State -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+State
+
+</label>
+
+<select class="form-select" name="state" required>
+
+<option value="">Select State</option>
+
+<option>Uttar Pradesh</option>
+
+<option>Uttarakhand</option>
+
+<option>Punjab</option>
+
+<option>Haryana</option>
+
+<option>Rajasthan</option>
+
+<option>Madhya Pradesh</option>
+
+<option>Maharashtra</option>
+
+<option>Gujarat</option>
+
+<option>Bihar</option>
+
+<option>West Bengal</option>
+
+<option>Tamil Nadu</option>
+
+<option>Karnataka</option>
+
+<option>Andhra Pradesh</option>
+
+<option>Kerala</option>
+
+</select>
+
+</div>
+
+<!-- District -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+District
+
+</label>
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="district"
+
+placeholder="Enter District"
+
+required>
+
+</div>
+
+<!-- Village -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Village
+
+</label>
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="village"
+
+placeholder="Enter Village"
+
+required>
+
+</div>
+
+<!-- PIN -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+PIN Code
+
+</label>
+
+<input
+
+type="text"
+
+class="form-control"
+
+maxlength="6"
+
+name="pincode"
+
+placeholder="247667"
+
+required>
+
+</div>
+
+<!-- Farm Size -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Farm Size (Acres)
+
+</label>
+
+<input
+
+type="number"
+
+step="0.1"
+
+class="form-control"
+
+name="farm_size"
+
+placeholder="5.5"
+
+required>
+
+</div>
+
+<!-- Soil Type -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Soil Type
+
+</label>
+
+<select class="form-select"
+
+name="soil_type">
+
+<option>Black Soil</option>
+
+<option>Red Soil</option>
+
+<option>Clay Soil</option>
+
+<option>Loamy Soil</option>
+
+<option>Sandy Soil</option>
+
+<option>Alluvial Soil</option>
+
+</select>
+
+</div>
+
+<!-- Main Crop -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Main Crop
+
+</label>
+
+<select class="form-select"
+
+name="main_crop">
+
+<option>Rice</option>
+
+<option>Wheat</option>
+
+<option>Maize</option>
+
+<option>Sugarcane</option>
+
+<option>Cotton</option>
+
+<option>Potato</option>
+
+<option>Tomato</option>
+
+<option>Onion</option>
+
+<option>Mustard</option>
+
+<option>Soybean</option>
+
+</select>
+
+</div>
+
+<!-- Farming Experience -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Farming Experience
+
+</label>
+
+<select class="form-select"
+
+name="experience">
+
+<option>Beginner</option>
+
+<option>1-3 Years</option>
+
+<option>3-5 Years</option>
+
+<option>5-10 Years</option>
+
+<option>10+ Years</option>
+
+</select>
+
+</div>
+
+<!-- Irrigation -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Irrigation Type
+
+</label>
+
+<select class="form-select"
+
+name="irrigation">
+
+<option>Drip Irrigation</option>
+
+<option>Sprinkler</option>
+
+<option>Canal</option>
+
+<option>Rain Water</option>
+
+<option>Tube Well</option>
+
+</select>
+
+</div>
+
+<!-- Water Source -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Water Source
+
+</label>
+
+<select class="form-select"
+
+name="water_source">
+
+<option>Borewell</option>
+
+<option>River</option>
+
+<option>Canal</option>
+
+<option>Pond</option>
+
+<option>Rainwater Harvesting</option>
+
+</select>
+
+</div>
+
+<!-- Farm Location -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Farm GPS Location
+
+</label>
+
+<div class="input-group">
+
+<input
+
+type="text"
+
+class="form-control"
+
+placeholder="Latitude, Longitude"
+
+name="gps">
+
+<button
+
+type="button"
+
+class="btn btn-success">
+
+<i class="fa-solid fa-location-crosshairs"></i>
+
+Get Location
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Weather Zone -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Weather Zone
+
+</label>
+
+<select class="form-select"
+
+name="zone">
+
+<option>Tropical</option>
+
+<option>Sub Tropical</option>
+
+<option>Temperate</option>
+
+<option>Dry Zone</option>
+
+<option>Humid Zone</option>
+
+</select>
+
+</div>
+
+<!-- Organic Farming -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Organic Farming
+
+</label>
+
+<select class="form-select"
+
+name="organic">
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+</div>
+
+<!-- Farm Photo -->
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Farm Photo
+
+</label>
+
+<input
+
+type="file"
+
+class="form-control"
+
+name="farm_photo"
+
+accept="image/*">
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<!-- ================= PART-4 STARTS HERE ================= -->
+ <!-- ================= SECURITY ================= -->
+
+<h3 class="mb-4 text-danger">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+Security & Verification
+
+</h3>
+
+<div class="row">
+
+    <!-- Password -->
+
+    <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+
+            Password
+
+        </label>
+
+        <div class="input-group">
+
+            <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Create Password"
+                required>
+
+            <button
+                class="btn btn-outline-light"
+                type="button"
+                onclick="togglePassword('password','eye1')">
+
+                <i id="eye1" class="fa-solid fa-eye"></i>
+
+            </button>
+
+        </div>
+
+        <div class="progress mt-2" style="height:8px;">
+
+            <div id="strengthBar"
+                 class="progress-bar bg-danger"
+                 style="width:0%">
+
+            </div>
+
+        </div>
+
+        <small id="strengthText">
+
+            Password Strength
+
+        </small>
+
+    </div>
+
+    <!-- Confirm Password -->
+
+    <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+
+            Confirm Password
+
+        </label>
+
+        <div class="input-group">
+
+            <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                required>
+
+            <button
+                class="btn btn-outline-light"
+                type="button"
+                onclick="togglePassword('confirmPassword','eye2')">
+
+                <i id="eye2"
+                   class="fa-solid fa-eye">
+
+                </i>
+
+            </button>
+
+        </div>
+
+        <small id="matchText"></small>
+
+    </div>
+
+    <!-- Email OTP -->
+
+    <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+
+            Email OTP
+
+        </label>
+
+        <div class="input-group">
+
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Email OTP">
+
+            <button
+                type="button"
+                class="btn btn-primary">
+
+                Send OTP
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Mobile OTP -->
+
+    <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+
+            Mobile OTP
+
+        </label>
+
+        <div class="input-group">
+
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Mobile OTP">
+
+            <button
+                type="button"
+                class="btn btn-success">
+
+                Verify
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr>
+
+<!-- Terms -->
+
+<div class="form-check mt-3">
+
+<input
+
+type="checkbox"
+
+class="form-check-input"
+
+required>
+
+<label class="form-check-label">
+
+I agree to the
+
+<a href="#">
+
+Terms & Conditions
+
+</a>
+
+</label>
+
+</div>
+
+<!-- Newsletter -->
+
+<div class="form-check mt-2">
+
+<input
+
+type="checkbox"
+
+class="form-check-input">
+
+<label class="form-check-label">
+
+Subscribe to AI Farming Newsletter
+
+</label>
+
+</div>
+
+<!-- Social Login -->
+
+<div class="text-center mt-5">
+
+<h5>
+
+Or Continue With
+
+</h5>
+
+<button class="btn btn-danger m-2">
+
+<i class="fab fa-google"></i>
+
+Google
+
+</button>
+
+<button class="btn btn-dark m-2">
+
+<i class="fab fa-github"></i>
+
+GitHub
+
+</button>
+
+<button class="btn btn-primary m-2">
+
+<i class="fab fa-facebook"></i>
+
+Facebook
+
+</button>
+
+</div>
+
+<!-- Register -->
+
+<div class="d-grid mt-5">
+
+<button
+
+type="submit"
+
+class="btn btn-success btn-lg">
+
+<i class="fa-solid fa-user-plus"></i>
+
+Create Farmer Account
+
+</button>
+
+</div>
+
+<div class="text-center mt-4">
+
+Already have an account?
+
+<a href="/login"
+
+class="text-warning">
+
+Login
+
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+<!-- ================= PREMIUM FEATURES ================= -->
+
+<!-- AI Floating Button -->
+
+<button id="aiBtn"
+class="btn btn-success rounded-circle shadow-lg">
+
+<i class="fa-solid fa-robot"></i>
+
+</button>
+
+<!-- Dark Mode -->
+
+<button id="darkMode"
+class="btn btn-dark rounded-circle shadow-lg">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<!-- Back To Top -->
+
+<button id="topBtn"
+class="btn btn-warning rounded-circle shadow-lg">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- Loading Spinner -->
+
+<div id="loadingScreen">
+
+<div class="spinner-border text-success"
+
+style="width:70px;height:70px;">
+
+</div>
+
+<h4 class="mt-4">
+
+Creating Your Account...
+
+</h4>
+
+</div>
+
+<!-- Success Modal -->
+
+<div class="modal fade"
+
+id="successModal"
+
+tabindex="-1">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content text-center p-4">
+
+<div class="display-1">
+
+🎉
+
+</div>
+
+<h2>
+
+Registration Successful
+
+</h2>
+
+<p>
+
+Welcome to AI Farmer Assistant
+
+</p>
+
+<a href="/login"
+
+class="btn btn-success">
+
+Go To Login
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer class="mt-5 text-center">
+
+<hr>
+
+<p>
+
+© 2026 AI Farmer Assistant
+
+</p>
+
+<p>
+
+Made with ❤️ using Flask + Bootstrap
+
+</p>
+
+</footer>

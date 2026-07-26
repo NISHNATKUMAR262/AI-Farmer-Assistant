@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Farmer Assistant | Crop Recommendation</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#d4fc79,#96e6a1);
+            min-height:100vh;
+            overflow-x:hidden;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* Navbar */
+
+        .navbar{
+            background:rgba(255,255,255,.15);
+            backdrop-filter:blur(15px);
+            border-bottom:1px solid rgba(255,255,255,.2);
+        }
+
+        .navbar-brand{
+            font-size:28px;
+            font-weight:700;
+            color:white!important;
+        }
+
+        .nav-link{
+            color:white!important;
+            font-weight:500;
+            margin-left:15px;
+            transition:.3s;
+        }
+
+        .nav-link:hover{
+            color:#ffe600!important;
+        }
+
+        /* Hero */
+
+        .hero{
+            padding:70px 0;
+        }
+
+        .hero h1{
+            font-size:50px;
+            font-weight:700;
+            color:white;
+        }
+
+        .hero p{
+            color:#f5f5f5;
+            font-size:18px;
+        }
+
+        /* Glass Card */
+
+        .glass-card{
+
+            background:rgba(255,255,255,.20);
+
+            backdrop-filter:blur(20px);
+
+            border-radius:25px;
+
+            border:1px solid rgba(255,255,255,.30);
+
+            box-shadow:0 10px 40px rgba(0,0,0,.15);
+
+            padding:35px;
+
+        }
+
+        /* Form */
+
+        .form-label{
+
+            font-weight:600;
+
+            color:#222;
+
+        }
+
+        .form-control,
+        .form-select{
+
+            border-radius:15px;
+
+            border:none;
+
+            padding:12px;
+
+            box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+        }
+
+        .form-control:focus,
+        .form-select:focus{
+
+            box-shadow:0 0 15px rgba(25,135,84,.4);
+
+            border:none;
+
+        }
+
+        /* Button */
+
+        .btn-predict{
+
+            width:100%;
+
+            border-radius:40px;
+
+            padding:14px;
+
+            font-size:18px;
+
+            font-weight:600;
+
+            transition:.4s;
+
+        }
+
+        .btn-predict:hover{
+
+            transform:translateY(-4px);
+
+        }
+
+        /* Floating Circles */
+
+        .circle{
+
+            position:absolute;
+
+            border-radius:50%;
+
+            background:rgba(255,255,255,.20);
+
+            animation:float 8s infinite linear;
+
+        }
+
+        .circle1{
+
+            width:170px;
+
+            height:170px;
+
+            top:80px;
+
+            left:-40px;
+
+        }
+
+        .circle2{
+
+            width:220px;
+
+            height:220px;
+
+            bottom:50px;
+
+            right:-60px;
+
+        }
+
+        @keyframes float{
+
+            0%{
+                transform:translateY(0);
+            }
+
+            50%{
+                transform:translateY(-25px);
+            }
+
+            100%{
+                transform:translateY(0);
+            }
+
+        }
+
+        /* Section Title */
+
+        .section-title{
+
+            font-size:32px;
+
+            font-weight:700;
+
+            color:#0c893e;
+
+            margin-bottom:25px;
+
+        }
+
+        /* Footer */
+
+        footer{
+
+            margin-top:60px;
+
+            background:#809488;
+
+            color:white;
+
+            text-align:center;
+
+            padding:18px;
+
+        }
+
+        /* Responsive */
+
+        @media(max-width:768px){
+
+            .hero h1{
+
+                font-size:35px;
+
+            }
+
+            .glass-card{
+
+                padding:20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- Floating Background -->
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="/">
+            🌾 AI Farmer
+        </a>
+
+        <button class="navbar-toggler bg-light"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/weather">Weather</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/market">Market</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- ===== Part-1B se yahan se Hero aur AI Form start hoga ===== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Left Side -->
+
+            <div class="col-lg-6 mb-4">
+
+                <h1>
+                    🌾 AI Crop Recommendation System
+                </h1>
+
+                <p class="mt-3">
+
+                    Get the best crop recommendation using Artificial Intelligence,
+                    Soil Analysis, Weather Data and Smart Farming Technology.
+
+                </p>
+
+                <div class="mt-4">
+
+                    <span class="badge bg-success p-3 me-2">
+                        🤖 AI Powered
+                    </span>
+
+                    <span class="badge bg-primary p-3 me-2">
+                        🌦 Weather Smart
+                    </span>
+
+                    <span class="badge bg-warning text-dark p-3">
+                        🌱 Soil Analysis
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-6">
+
+                <div class="glass-card">
+
+                    <h2 class="section-title text-center">
+
+                        🌱 Crop Prediction Form
+
+                    </h2>
+
+                    <form action="/crop" method="POST">
+
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+
+                                <label class="form-label">
+
+                                    Nitrogen (N)
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    name="nitrogen"
+                                    placeholder="Enter N value"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+
+                                <label class="form-label">
+
+                                    Phosphorus (P)
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    name="phosphorus"
+                                    placeholder="Enter P value"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+
+                                <label class="form-label">
+
+                                    Potassium (K)
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    name="potassium"
+                                    placeholder="Enter K value"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Temperature (°C)
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    class="form-control"
+                                    name="temperature"
+                                    placeholder="Temperature"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Humidity (%)
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    class="form-control"
+                                    name="humidity"
+                                    placeholder="Humidity"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Soil pH
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    class="form-control"
+                                    name="ph"
+                                    placeholder="Soil pH"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Rainfall (mm)
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    class="form-control"
+                                    name="rainfall"
+                                    placeholder="Rainfall"
+                                    required>
+
+                            </div>
+
+                            <!-- NEW FEATURES -->
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Soil Type
+
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    name="soil_type">
+
+                                    <option>Clay</option>
+                                    <option>Sandy</option>
+                                    <option>Loamy</option>
+                                    <option>Black Soil</option>
+                                    <option>Red Soil</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Season
+
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    name="season">
+
+                                    <option>Kharif</option>
+                                    <option>Rabi</option>
+                                    <option>Zaid</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    State
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="state"
+                                    placeholder="Enter State">
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    District
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="district"
+                                    placeholder="Enter District">
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="btn btn-success btn-predict mt-3">
+
+                            <i class="fa-solid fa-seedling"></i>
+
+                            Predict Best Crop
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
